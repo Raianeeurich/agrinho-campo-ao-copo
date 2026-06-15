@@ -1,75 +1,179 @@
 @import url("style/header.css");
 :root{
- --laranja-claro: #FF862A;
+    --laranja-claro: #FF862A;
     --preto: #000000;
-    --branco: #FFFFFF; 
+    --branco: #FFFFFF;
+    --verde-escuro: #2c744a;
+    --verde-medio: #4d805d;
+    --verde-claro: #64c095;
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
 .cabecalho {
-    background-color: #4d805d;
-    color:var(--branco);
+    background-color: var(--verde-medio);
+    color: var(--branco);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 40px;
+    list-style: none;
 }
 
 .cabecalho-imagem{
-    width: 15%;
-    margin: 0 10px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.5);
 }
 
 .cabecalho-lista-item{
     display: inline-block;
     margin: 0 10px;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-.agro-imagem{
-    width: 25%;
-    margin: 10px;
-}
-
-.agro{
-    background-image: linear-gradient(#64c095,#2c744a);
-    color:var(--branco);
+.agro {
+    background-image: linear-gradient(135deg, var(--verde-claro), var(--verde-escuro));
+    color: var(--branco);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px 0;
+    gap: 56px;
+    padding: 64px 80px;
 }
 
-.agro-div-conteudo{
-    width: 35%;
-    padding: 14px 0;
-    margin: 10px;
+.agro:nth-child(3) {
+    flex-direction: row-reverse;
+    background-image: linear-gradient(135deg, var(--verde-escuro), #1a5c38);
 }
-.agro-titulo{
-    padding: 24px 0;
+
+.agro-div-conteudo {
+    width: 45%;
+    max-width: 540px;
 }
-.contato{
-  background-image: linear-gradient(#64c095,#2c744a);
-    color:var(--branco);
+
+.agro-titulo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border-left: 4px solid rgba(255, 255, 255, 0.7);
+    line-height: 1.3;
+}
+
+.agro-texto-um,
+.agro-texto-dois {
+    font-size: 1rem;
+    line-height: 1.85;
+    opacity: 0.93;
+}
+
+.agro-texto-dois {
+    margin-top: 14px;
+}
+
+.agro-imagem {
+    width: 30%;
+    max-width: 360px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    object-fit: cover;
+}
+
+.contato {
+    background-image: linear-gradient(135deg, var(--verde-claro), var(--verde-escuro));
+    color: var(--branco);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 14px 0;
+    padding: 40px 80px;
 }
 
-.rodape{
-    background-color:var(--preto);
+.rodape {
+    background-color: var(--verde-medio);
+    color: var(--branco);
+}
+
+.rodape-conteudo {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 48px 80px;
+    gap: 40px;
+}
+
+.rodape-marca {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 220px;
+}
+
+.rodape-imagem {
+    height: 64px;
+    width: 64px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.rodape-nome {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.rodape-descricao {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    line-height: 1.5;
+}
+
+.rodape-titulo-coluna {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+}
+
+.rodape-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rodape-link {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+
+.rodape-link:hover {
+    opacity: 1;
+}
+
+.rodape-direitos {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
-}
-
-.rodape-imagem{
-    height: 60px;
-    padding: 12px 0;
-   
+    padding: 18px 80px;
+    font-size: 0.8rem;
+    opacity: 0.6;
 }
 
 
@@ -106,12 +210,16 @@
 
 .alto-contraste .cabecalho,
 .alto-contraste .rodape,
-.alto-contraste .agro {
+.alto-contraste .agro,
+.alto-contraste .contato {
     background-color: var(--preto);
+    background-image: none;
     color: var(--branco);
 }
+
 .alto-contraste .botao-inicio,
 .alto-contraste .btn-primary {
     background-color: var(--laranja-claro);
     color: var(--preto);
+    border-color: var(--laranja-claro);
 }
